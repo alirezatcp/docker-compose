@@ -18,7 +18,7 @@ services:
     networks:
       - main
     ports:
-      - "5432":"5432"
+      - "5432:5432"
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -54,7 +54,7 @@ services:
 
   nginx:
     container_name: nginx
-    comman: nginx -g 'daemon off;'
+    command: nginx -g 'daemon off;'
     depends_on: 
       - app
     image: nginx:latest
@@ -68,6 +68,6 @@ services:
 
 # create network
 networks:
-  - main
+  main:
 volumes:
-  - postgres_data
+  postgres_data:
